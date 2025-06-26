@@ -8,11 +8,11 @@ import {
 export async function search(context: Context) {
   const query = getCommandContent(context);
   if (!query) {
-    replyWithReply(context, "Query not specified!");
+    await replyWithReply(context, "Query not specified!");
     return;
   }
   const searchResults = await getSearchResults(query);
-  replyWithReply(context, searchResults, {
+  await replyWithReply(context, searchResults, {
     link_preview_options: { is_disabled: true },
   });
 }
