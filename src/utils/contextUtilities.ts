@@ -8,7 +8,7 @@ export function getCommandContent(
 ): string {
   const messageContent = context.message?.text;
   const commandContent =
-    messageContent?.replace(/\/\w+/, "").trim() || defaultContent;
+    messageContent?.replace(/\/\w+(@\w+)?/, "").trim() || defaultContent;
   return commandContent;
 }
 
