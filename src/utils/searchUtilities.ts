@@ -36,7 +36,7 @@ function formatSearchResults(
   query: string,
   results: SearchResults
 ): string | FormattedString {
-  if (!results) {
+  if (results.length === 0) {
     return "No results found";
   }
   let formattedString = FormattedString.bold("Search results for ")
