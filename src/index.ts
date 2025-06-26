@@ -6,7 +6,7 @@ import { search } from "./features/search.js";
 import { help } from "./features/help.js";
 import { errorHandler } from "./utils/errorHandler.js";
 
-const bot = createBot({ customProxyAddr: "http://172.30.240.1:7897" });
+const bot = createBot();
 
 // Set bot commands
 await bot.api.setMyCommands(commandList);
