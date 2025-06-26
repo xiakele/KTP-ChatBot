@@ -1,5 +1,5 @@
 {
-  "name": "learning-ts",
+  "name": "ktp-chatbot",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,14 +9,18 @@
   },
   "scripts": {
     "dev": "tsx watch src/index.ts",
+    "build": "tsc --build",
+    "serve": "node dist/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "xiakele",
   "license": "ISC",
   "packageManager": "pnpm@10.12.1",
   "devDependencies": {
     "@eslint/js": "^9.29.0",
+    "@tsconfig/node-ts": "^23.6.1",
+    "@tsconfig/node22": "^22.0.2",
     "@types/node": "^24.0.4",
     "eslint": "^9.29.0",
     "eslint-config-prettier": "^10.1.5",
