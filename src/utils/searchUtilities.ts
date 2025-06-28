@@ -1,6 +1,6 @@
 import type { SearchResults } from "../types.js";
 import * as cheerio from "cheerio";
-import { getPostResponseContent } from "../utils/axiosUtilities.js";
+import { getPostResponseContent } from "../utils/fetchUtilities.ts";
 import { FormattedString } from "@grammyjs/parse-mode";
 
 export async function getSearchResults(
@@ -11,7 +11,7 @@ export async function getSearchResults(
     await getPostResponseContent(
       baseUrl,
       { q: query },
-      { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
+      { "Content-Type": "application/x-www-form-urlencoded" }
     )
   );
   const $links = $("a.result-link");
