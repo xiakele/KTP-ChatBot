@@ -1,8 +1,8 @@
-import { fetch, type HeadersInit } from "undici";
+import { fetch, type BodyInit, type HeadersInit } from "undici";
 
-export async function getPostResponseContent(
+export async function getPostResponse(
   url: string,
-  postContent: Record<string, string>,
+  body: BodyInit,
   headers?: HeadersInit
 ) {
   const response = await fetch(url, {
@@ -12,7 +12,7 @@ export async function getPostResponseContent(
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:139.0) Gecko/20100101 Firefox/139.0",
       ...headers,
     },
-    body: new URLSearchParams(postContent),
+    body,
   });
-  return await response.text();
+  return response;
 }

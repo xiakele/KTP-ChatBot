@@ -1,19 +1,22 @@
 import type { SearchResults } from "../types.js";
 import * as cheerio from "cheerio";
-import { getPostResponseContent } from "../utils/fetchUtilities.ts";
+import { getPostResponse } from "../utils/fetchUtilities.ts";
 import { FormattedString } from "@grammyjs/parse-mode";
 
 export async function getSearchResults(
   query: string
 ): Promise<string | FormattedString> {
   const baseUrl = `https://html.duckduckgo.com/lite/`;
-  const $ = cheerio.load(
-    await getPostResponseContent(
-      baseUrl,
-      { q: query },
-      { "Content-Type": "application/x-www-form-urlencoded" }
-    )
+  const response = await getPostResponse(
+    baseUrl,
+    new URLSearchParams({ q: query }),
+    { "Content-Type": "application/x-www-form-urlencoded" }
   );
+  if (!response.ok) {
+    throw new Error("Failed to fetch search results");
+  }
+  const html = await response.text();
+  const $ = cheerio.load(html);
   const $links = $("a.result-link");
   const $descriptions = $("td.result-snippet");
   const results: SearchResults = [];
