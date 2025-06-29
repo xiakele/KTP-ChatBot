@@ -23,9 +23,11 @@ export async function draw(context: Context) {
     .code(prompt)
     .bold("\nmodel: ")
     .plain("Kwai-Kolors/Kolors");
+  const messageId = context.message?.message_id;
   await context.replyWithPhoto(imgUrl, {
     caption: formattedCaption.caption,
     caption_entities: formattedCaption.caption_entities,
+    reply_parameters: messageId ? { message_id: messageId } : undefined,
   });
   if (processingMessage) {
     await context.api.deleteMessage(
