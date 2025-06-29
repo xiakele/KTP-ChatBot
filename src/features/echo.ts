@@ -5,6 +5,6 @@ import {
 } from "../utils/contextUtilities.js";
 
 export async function echo(context: Context) {
-  const echoContent = getCommandContent(context, "echo");
-  await replyWithReply(context, echoContent);
+  const echoContent = getCommandContent(context);
+  await replyWithReply(context, echoContent || "echo");
 }

@@ -2,13 +2,9 @@ import type { Context } from "grammy";
 import type { ReplyOptions } from "../types.js";
 import { FormattedString } from "@grammyjs/parse-mode";
 
-export function getCommandContent(
-  context: Context,
-  defaultContent = ""
-): string {
+export function getCommandContent(context: Context): string | undefined {
   const messageContent = context.message?.text;
-  const commandContent =
-    messageContent?.replace(/\/\w+(@\w+)?/, "").trim() || defaultContent;
+  const commandContent = messageContent?.replace(/\/\w+(@\w+)?/, "").trim();
   return commandContent;
 }
 
