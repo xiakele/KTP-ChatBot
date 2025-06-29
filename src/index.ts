@@ -3,6 +3,7 @@ import { commandList } from "./config/commandList.js";
 import { start } from "./features/start.js";
 import { echo } from "./features/echo.js";
 import { search } from "./features/search.js";
+import { draw } from "./features/draw.ts";
 import { help } from "./features/help.js";
 import { errorHandler } from "./utils/errorHandler.js";
 
@@ -15,6 +16,7 @@ await bot.api.setMyCommands(commandList);
 bot.command("start", start);
 bot.command("echo", echo);
 bot.command("search", search);
+bot.command("draw", draw);
 bot.command("help", help);
 
 // eslint-disable-next-line unicorn/prefer-top-level-await
