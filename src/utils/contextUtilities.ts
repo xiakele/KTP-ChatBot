@@ -25,5 +25,5 @@ export async function replyWithReply(
     });
     return;
   }
-  await context.reply(replyContent, replyOptions);
+  return await context.reply(replyContent, replyOptions);
 }
