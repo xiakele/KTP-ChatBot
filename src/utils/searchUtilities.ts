@@ -54,7 +54,10 @@ function formatSearchResults(
   formattedString = formattedString
     .italic("Source: ")
     .italic(
-      FormattedString.link("DuckDuckGo", `https://duckduckgo.com/?q=${query}`)
+      FormattedString.link(
+        "DuckDuckGo",
+        `https://duckduckgo.com/?q=${encodeURIComponent(query)}`
+      )
     );
   return formattedString;
 }
