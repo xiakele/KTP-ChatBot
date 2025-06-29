@@ -9,7 +9,7 @@ import { FormattedString } from "@grammyjs/parse-mode";
 
 //TODO: refactor draw function
 export async function draw(context: Context) {
-  const apiKey = process.env?.SILICONFLOW_APIKEY;
+  const apiKey = process.env.SILICONFLOW_APIKEY;
   const prompt = getCommandContent(context);
   if (!apiKey) {
     throw new Error("No API key provided!");
